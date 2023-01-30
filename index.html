@@ -23,7 +23,7 @@
                     <li v-for="detail in details">{{ detail }}</li>
                 </ul>
                 <div v-for="variant in variants" :key="variant.variantId">
-                    <p>{{ variant.variantColor }}</p>
+                    <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
                 </div>
                 <div>
                     <p>Sizes:</p>
@@ -35,7 +35,12 @@
                 <p id="In_Stock" v-if="inventory > 10">In Stock</p>
                 <p id="Almost" v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
                 <p id="Out_of_Stock" v-else>Out of Stock</p>
-                <span v-show="onSale">On Sale</span>
+                <span v-show="onSale">On Sale</span><br>
+                <button @click="addToCart">Add to cart</button>
+                <button @click="removeFromCart">Remove from cart</button>
+                <div class="cart">
+                    <p>Cart({{ cart }})</p>
+                </div>
             </div>
         </div>
     </div>
