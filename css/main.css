@@ -27,6 +27,18 @@ img {
     width: 80%;
 }
 
+#In_Stock{
+    color: #84CF6A;
+}
+
+#Out_of_Stock{
+    color: firebrick;
+}
+
+#Almost{
+    color: darkorange;
+}
+
 .product-image,
 .product-info {
     margin-top: 10px;
