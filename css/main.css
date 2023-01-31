@@ -31,8 +31,9 @@ img {
     color: #84CF6A;
 }
 
-#Out_of_Stock{
+.outOfStock{
     color: firebrick;
+    text-decoration: line-through;
 }
 
 #Almost{
@@ -46,9 +47,11 @@ img {
 }
 
 .color-box {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     margin-top: 5px;
+    border-radius: 100%;
+    border: #282828 solid 3px;
 }
 
 .cart {
