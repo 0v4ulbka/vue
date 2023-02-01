@@ -11,10 +11,22 @@ Vue.component('product', {
 
     template: `
     <div class="product">
+        <div>
+            <ul>
+                <span class="tab" 
+                    v-for="(tab, index) in tabs" 
+                    @click="selectedTab = tab"
+                    :class="{ activeTab: selectedTab === tab }"
+                >{{ tab }}</span>
+            </ul>
+        </div>
+        <div v-show="selectedTab === 'Shoes'">
+            <h1>Shoes</h1>         
+        </div>
+        <div class="product-info" v-show="selectedTab === 'Socks'">
         <div class="product-image">
                 <img :alt="altText" :src="image"/>
             </div>
-            <div class="product-info">
                 <h1>{{ sale }}</h1>
                 <p>{{ description }}</p>
                 <detail-tabs :shipping="shipping" :details="details"></detail-tabs>
@@ -75,6 +87,8 @@ Vue.component('product', {
             ],
             sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
             reviews: [],
+            tabs:['Socks', 'Shoes'],
+            selectedTab: 'Socks'
 
         }
     },
@@ -305,6 +319,7 @@ Vue.component('detail-tabs', {
         }
     },
 })
+
 
 let app = new Vue({
     el: '#app',     //подключение экземпляра к html странице
